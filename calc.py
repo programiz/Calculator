@@ -1,4 +1,7 @@
 import tkinter as tk
+from tkinter import font
+
+from matplotlib.pyplot import text
 
 LARGE_FONT_STYLE = ("Arial", 40, "bold")
 SMALL_FONT_STYLE = ("Arial", 16)
@@ -53,6 +56,7 @@ class Calculator:
 
     def create_special_buttons(self):
         self.create_clear_button()
+        self.create_clear_last_character_button()
         self.create_equals_button()
         self.create_square_button()
         self.create_sqrt_button()
@@ -104,14 +108,24 @@ class Calculator:
         self.update_label()
         self.update_total_label()
 
+    def clear_last_character(self):
+        if self.current_expression != "":
+            self.current_expression = self.current_expression[:-1]
+            self.update_label()
+
     def create_clear_button(self):
         button = tk.Button(self.buttons_frame, text="C", bg=OFF_WHITE, fg=LABEL_COLOR, font=DEFAULT_FONT_STYLE,
                            borderwidth=0, command=self.clear)
         button.grid(row=0, column=1, sticky=tk.NSEW)
 
+    def create_clear_last_character_button(self):
+        button = tk.Button(self.buttons_frame,text="<=",bg=OFF_WHITE,fg=LABEL_COLOR, font=DEFAULT_FONT_STYLE,
+                            borderwidth=0,command=self.clear_last_character )
+        button.grid(row=4,column=3,sticky=tk.NSEW)
+
     def square(self):
         self.current_expression = str(eval(f"{self.current_expression}**2"))
-        self.update_label()
+        self.update_label() 
 
     def create_square_button(self):
         button = tk.Button(self.buttons_frame, text="x\u00b2", bg=OFF_WHITE, fg=LABEL_COLOR, font=DEFAULT_FONT_STYLE,
@@ -142,7 +156,7 @@ class Calculator:
     def create_equals_button(self):
         button = tk.Button(self.buttons_frame, text="=", bg=LIGHT_BLUE, fg=LABEL_COLOR, font=DEFAULT_FONT_STYLE,
                            borderwidth=0, command=self.evaluate)
-        button.grid(row=4, column=3, columnspan=2, sticky=tk.NSEW)
+        button.grid(row=4, column=4, columnspan=1, sticky=tk.NSEW)
 
     def create_buttons_frame(self):
         frame = tk.Frame(self.window)
@@ -165,3 +179,4 @@ class Calculator:
 if __name__ == "__main__":
     calc = Calculator()
     calc.run()
+    calc.clear_last_character()
