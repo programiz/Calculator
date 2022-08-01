@@ -1,15 +1,4 @@
-# Calculator
-Create your own Python Calculator App using Python and tkinter.
+# Colorful-Calculator 
+I update it into colorful calculator
 
-Video Link: [https://youtu.be/QZPv1y2znZo](https://youtu.be/QZPv1y2znZo)
-
-![Calculator App](calculator.png)
-
----
-
-## Create Standalone Executable
-
-```shell
-pip install pyinstaller
-pyinstaller --onefile -w calc.py
-```
+Source Code for Calculator App project of the Python Project-based Le
