@@ -19,7 +19,7 @@ class Colors:
     LABEL_COLOR = "#25265E"
 
 
-class Calculator(Colors, Fonts):
+class Calculator:
     def __init__(self):
         self.window = tk.Tk()
         self.window.geometry("375x667")
@@ -75,26 +75,26 @@ class Calculator(Colors, Fonts):
             self.display_frame,
             text=self.total_expression,
             anchor=tk.E,
-            bg=self.LIGHT_GRAY,
-            fg=self.LABEL_COLOR,
+            bg=Colors.LIGHT_GRAY,
+            fg=Colors.LABEL_COLOR,
             padx=24,
-            font=self.SMALL_FONT_STYLE)
+            font=Fonts.SMALL_FONT_STYLE)
         total_label.pack(expand=True, fill='both')
 
         label = tk.Label(
             self.display_frame,
             text=self.current_expression,
             anchor=tk.E,
-            bg=self.LIGHT_GRAY,
-            fg=self.LABEL_COLOR,
+            bg=Colors.LIGHT_GRAY,
+            fg=Colors.LABEL_COLOR,
             padx=24,
-            font=self.LARGE_FONT_STYLE)
+            font=Fonts.LARGE_FONT_STYLE)
         label.pack(expand=True, fill='both')
 
         return total_label, label
 
     def create_display_frame(self):
-        frame = tk.Frame(self.window, height=221, bg=self.LIGHT_GRAY)
+        frame = tk.Frame(self.window, height=221, bg=Colors.LIGHT_GRAY)
         frame.pack(expand=True, fill="both")
         return frame
 
@@ -107,9 +107,9 @@ class Calculator(Colors, Fonts):
             button = tk.Button(
                 self.buttons_frame,
                 text=str(digit),
-                bg=self.WHITE,
-                fg=self.LABEL_COLOR,
-                font=self.DIGITS_FONT_STYLE,
+                bg=Colors.WHITE,
+                fg=Colors.LABEL_COLOR,
+                font=Fonts.DIGITS_FONT_STYLE,
                 borderwidth=0,
                 command=lambda x=digit: self.add_to_expression(x))
             button.grid(
@@ -130,9 +130,9 @@ class Calculator(Colors, Fonts):
             button = tk.Button(
                 self.buttons_frame,
                 text=symbol,
-                bg=self.OFF_WHITE,
-                fg=self.LABEL_COLOR,
-                font=self.DEFAULT_FONT_STYLE,
+                bg=Colors.OFF_WHITE,
+                fg=Colors.LABEL_COLOR,
+                font=Fonts.DEFAULT_FONT_STYLE,
                 borderwidth=0,
                 command=lambda x=operator: self.append_operator(x))
             button.grid(row=i, column=4, sticky=tk.NSEW)
@@ -148,9 +148,9 @@ class Calculator(Colors, Fonts):
         button = tk.Button(
             self.buttons_frame,
             text="C",
-            bg=self.OFF_WHITE,
-            fg=self.LABEL_COLOR,
-            font=self.DEFAULT_FONT_STYLE,
+            bg=Colors.OFF_WHITE,
+            fg=Colors.LABEL_COLOR,
+            font=Fonts.DEFAULT_FONT_STYLE,
             borderwidth=0,
             command=self.clear)
         button.grid(row=0, column=1, sticky=tk.NSEW)
@@ -163,9 +163,9 @@ class Calculator(Colors, Fonts):
         button = tk.Button(
             self.buttons_frame,
             text="x\u00b2",
-            bg=self.OFF_WHITE,
-            fg=self.LABEL_COLOR,
-            font=self.DEFAULT_FONT_STYLE,
+            bg=Colors.OFF_WHITE,
+            fg=Colors.LABEL_COLOR,
+            font=Fonts.DEFAULT_FONT_STYLE,
             borderwidth=0,
             command=self.square)
         button.grid(row=0, column=2, sticky=tk.NSEW)
@@ -178,9 +178,9 @@ class Calculator(Colors, Fonts):
         button = tk.Button(
             self.buttons_frame,
             text="\u221ax",
-            bg=self.OFF_WHITE,
-            fg=self.LABEL_COLOR,
-            font=self.DEFAULT_FONT_STYLE,
+            bg=Colors.OFF_WHITE,
+            fg=Colors.LABEL_COLOR,
+            font=Fonts.DEFAULT_FONT_STYLE,
             borderwidth=0,
             command=self.sqrt)
         button.grid(row=0, column=3, sticky=tk.NSEW)
@@ -201,9 +201,9 @@ class Calculator(Colors, Fonts):
         button = tk.Button(
             self.buttons_frame,
             text="=",
-            bg=self.LIGHT_BLUE,
-            fg=self.LABEL_COLOR,
-            font=self.DEFAULT_FONT_STYLE,
+            bg=Colors.LIGHT_BLUE,
+            fg=Colors.LABEL_COLOR,
+            font=Fonts.DEFAULT_FONT_STYLE,
             borderwidth=0,
             command=self.evaluate)
         button.grid(row=4, column=3, columnspan=2, sticky=tk.NSEW)
