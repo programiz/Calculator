@@ -11,7 +11,7 @@ LIGHT_BLUE = "#CCEDFF"
 LIGHT_GRAY = "#F5F5F5"
 LABEL_COLOR = "#25265E"
 
-
+#calculator developed using the tkinter library in python, it has a simple and intuitive user interface, allowing users to perform basic arithmetic operations such as addition, subtraction, multiplication, and division. The calculator also includes features like clearing the current expression, calculating squares and square roots, and evaluating complex expressions. The design is clean and visually appealing, making it easy for users to interact with the calculator.
 class Calculator:
     def __init__(self):
         self.window = tk.Tk()
