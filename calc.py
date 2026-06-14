@@ -165,3 +165,52 @@ class Calculator:
 if __name__ == "__main__":
     calc = Calculator()
     calc.run()
+
+
+def divide(a, b):
+    # 没有处理 b=0 的情况，可能导致 ZeroDivisionError
+    return a / b
+
+
+def calculate_expression(expr):
+    # 直接执行用户输入，容易造成代码注入
+    return eval(expr)
+
+
+def admin_login(username, password):
+    # 硬编码密码，不安全
+    admin_password = "123456"
+    if username == "admin" and password == admin_password:
+        return True
+    return False
+
+
+def load_user_file(filename):
+    # 文件路径未校验，可能导致路径遍历攻击
+    with open(filename, "r") as f:
+        return f.read()
+
+
+def save_history(expression, result):
+    try:
+        # 直接吞掉异常，可能隐藏 bug
+        with open("history.txt", "a") as f:
+            f.write(expression + "=" + result + "\n")
+    except:
+        pass
+
+
+def unsafe_divide(a, b):
+    # 另一个不安全的除法示例，触发 review 建议
+    if b == 0:
+        return "Error"
+    return a / b
+
+
+def risky_eval(expr):
+    # eval 演示危险操作
+    try:
+        return eval(expr)
+    except Exception:
+        # 捕获所有异常但不处理
+        return "Invalid expression"
