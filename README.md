@@ -13,3 +13,12 @@ Video Link: [https://youtu.be/QZPv1y2znZo](https://youtu.be/QZPv1y2znZo)
 pip install pyinstaller
 pyinstaller --onefile -w calc.py
 ```
+
+## How to Run
+
+1. Clone the repository.
+2. Open the project directory.
+3. Run the Python program using:
+
+```bash
+python main.py
