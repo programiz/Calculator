@@ -22,3 +22,9 @@ pyinstaller --onefile -w calc.py
 
 ```bash
 python main.py
+
+## Example Output
+
+```text
+Enter your name: Vaishu
+Hello, Vaishu!
