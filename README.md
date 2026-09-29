@@ -13,3 +13,4 @@ Video Link: [https://youtu.be/QZPv1y2znZo](https://youtu.be/QZPv1y2znZo)
 pip install pyinstaller
 pyinstaller --onefile -w calc.py
 ```
+This project demonstrates a simple calculator application.
